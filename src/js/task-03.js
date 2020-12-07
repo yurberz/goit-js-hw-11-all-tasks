@@ -13,7 +13,7 @@ const pad = (value) => {
 const countDown = () => {
   const time = targetDate - Date.now();
 
-  refs.days.textContent = Math.floor(time / (1000 * 60 * 60 * 24));
+  refs.days.textContent = pad(Math.floor(time / (1000 * 60 * 60 * 24)));
   refs.hours.textContent = pad(
     Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
   );
