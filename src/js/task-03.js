@@ -9,6 +9,7 @@ class CountdownTimer {
   //===
 
   start() {
+    this.setCountdownTimer();
     this.intervalId = setInterval(() => {
       this.setCountdownTimer();
     }, 1000);
