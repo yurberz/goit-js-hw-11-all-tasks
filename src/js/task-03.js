@@ -2,15 +2,14 @@ class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.selector = document.querySelector(`${selector}`);
     this.targetDate = targetDate;
+    this.intervalId = null;
     this.start();
   }
 
   //===
 
   start() {
-    this.setCountdownTimer();
-
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.setCountdownTimer();
     }, 1000);
   }
@@ -27,7 +26,7 @@ class CountdownTimer {
     this.updateCountdownTimer(time);
 
     if (deltaTime < 0) {
-      clearInterval();
+      clearInterval(this.intervalId);
       this.clear();
     }
   }
@@ -68,5 +67,5 @@ const firstCountdownTimer = new CountdownTimer({
 
 const secondCountdownTimer = new CountdownTimer({
   selector: "#timer-2",
-  targetDate: new Date("Dec 8, 2020 3:50 PM"),
+  targetDate: new Date("Dec 8, 2020 3:45 PM"),
 });
