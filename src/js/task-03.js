@@ -29,6 +29,7 @@ class CountdownTimer {
     if (deltaTime < 0) {
       clearInterval(this.intervalId);
       this.clear();
+      return;
     }
   }
 
